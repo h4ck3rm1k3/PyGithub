@@ -43,7 +43,7 @@ for state in ( "MI", "MN", "WI", "ND", "IL", "MN", "KS", "OK", "NE", "CO", "TX",
         else:
             print "Already Follows,", person.url
 
-        if requests_left <  100:
+        if requests_left <  2:
             print "going to sleep for one hour to avoid overusing the api"
             #sleep for one hour, you have 5000 api calls per hour https://developer.github.com/v3/#rate-limiting
             time.sleep(3601)        

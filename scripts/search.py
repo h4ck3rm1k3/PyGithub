@@ -24,7 +24,7 @@ def check_quota(g):
         # give em a brake
         time.sleep(1)
 
-def all_following(g):
+def all_following(seen, g):
     for person in g.get_user().get_following():
         seen[person.url.encode()] =1
 
@@ -32,7 +32,7 @@ def main(g):
     seen = shelve.open("shelvefile")
 
     if len(seen.keys())< 10 :  # if we are starting out,read in the existing users
-        all_following(g)
+        all_following(seen, g)
 
     check_quota(g)
     print "scanning new users"
